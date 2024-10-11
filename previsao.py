@@ -31,11 +31,9 @@ for cidade in cidades:
             "Velocidade do Vento (km/h)": previsao['current']['wind_kph'],  
         })
 
-# Criar o DataFrame com os dados
 df_previsao = pd.DataFrame(dados_previsao)
 print(df_previsao)
 
-# Análise dos dados
 temperatura_media = df_previsao['Temperatura (°C)'].mean()
 print(f"\nTemperatura média nas cidades: {temperatura_media:.2f} °C")
 
