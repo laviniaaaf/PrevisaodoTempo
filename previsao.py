@@ -13,7 +13,7 @@ def obter_previsao(cidade, api_key):
         print(f"Erro ao obter dados para {cidade}: {response.status_code}")
         return None
 
-api_key = " " #coloque sua chave
+api_key = "93a2f86201d34646b68213150240910"
 cidades = ["Rio de Janeiro", "Salvador", "Sao Paulo", "Londres", "Paris", "Toronto", "Vancouver"]  
 dados_previsao = []
 
@@ -50,7 +50,6 @@ maior_vento = df_previsao[df_previsao['Velocidade do Vento (km/h)'] == df_previs
 print("\nCidade com maior velocidade do vento:")
 print(maior_vento[['Cidade', 'Velocidade do Vento (km/h)']])
 
-# Visualização dos dados
 plt.figure(figsize=(14, 8))
 
 plt.subplot(2, 2, 1)
