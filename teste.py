@@ -4,13 +4,12 @@ import re
 import matplotlib.pyplot as plt
 import seaborn as sns
 from scipy import stats
+import os
 
-# Ler o CSV
-df = pd.read_csv("air_quality.csv")
+base_path = os.path.dirname(__file__)
+csv_path = os.path.join(base_path, "air_quality.csv")
 
-#print(df)
-#print(df.describe())
-#df.info()
+df = pd.read_csv(csv_path)
 
 # Contagem de nulos
 nulos = df.isnull().sum()
