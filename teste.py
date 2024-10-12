@@ -6,7 +6,7 @@ import seaborn as sns
 from scipy import stats
 
 # Ler o CSV
-df = pd.read_csv("C:\\Users\\LaviniaF\\Desktop\\Teste de Analise\\air_quality.csv")
+df = pd.read_csv("air_quality.csv")
 
 #print(df)
 #print(df.describe())
