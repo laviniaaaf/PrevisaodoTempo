@@ -11,11 +11,9 @@ csv_path = os.path.join(base_path, "air_quality.csv")
 
 df = pd.read_csv(csv_path)
 
-# Contagem de nulos
 nulos = df.isnull().sum()
 print("Antes da remoção de nulos:\n", nulos)
 
-# Remover as linhas com valores nulos
 df_sem_nulos = df.dropna()
 #print(df_sem_nulos)
 
