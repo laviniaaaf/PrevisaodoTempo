@@ -2,7 +2,7 @@ import os
 import requests
 import argparse
 
-def obter_previsao(cidade, api_key):
+def get_forecast(cidade, api_key):
     url = f"http://api.weatherapi.com/v1/current.json?key={api_key}&q={cidade}&aqi=no"
     response = requests.get(url)
 
@@ -12,10 +12,10 @@ def obter_previsao(cidade, api_key):
         print(f"Erro ao obter dados para as {cidade}: {response.status_code}.")
         return None
 
-def obter_dados_previsao(cidades, api_key):
+def get_forecast_data(cidades, api_key):
     dados_previsao = []
     for cidade in cidades:
-        previsao = obter_previsao(cidade, api_key)
+        previsao = get_forecast(cidade, api_key)
         if previsao:
             dados_previsao.append({
                 "Cidade": cidade,
@@ -29,7 +29,7 @@ def obter_dados_previsao(cidades, api_key):
             })
     return dados_previsao
 
-def carregar_cidades(caminho_arquivo):
+def load_cities(caminho_arquivo):
     base_path = os.path.dirname(__file__)
     caminho_arquivo = os.path.join(base_path, 'cidades.txt')
     try:
@@ -39,6 +39,3 @@ def carregar_cidades(caminho_arquivo):
     except FileNotFoundError:
         print(f"Esse arquivo {caminho_arquivo} não foi encontrado!!!")
         return []
-
-if __name__ == "__main__":
-    main()
