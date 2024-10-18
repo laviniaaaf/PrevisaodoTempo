@@ -39,6 +39,3 @@ def carregar_cidades(caminho_arquivo):
     except FileNotFoundError:
         print(f"Esse arquivo {caminho_arquivo} não foi encontrado!!!")
         return []
-
-if __name__ == "__main__":
-    main()
