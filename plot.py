@@ -2,10 +2,10 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-def criar_dataframe(dados_previsao):
+def get_dataframe(dados_previsao):
     return pd.DataFrame(dados_previsao)
 
-def exibir_analise_dados(dados_previsao):
+def analysis_data(dados_previsao):
     df_previsao = pd.DataFrame(dados_previsao)
     
     temperatura_media = df_previsao['Temperatura (°C)'].mean()
@@ -40,7 +40,8 @@ def exibir_analise_dados(dados_previsao):
     plt.grid(axis='x', linestyle='--', alpha=0.7)
     plt.show()
 
-def graficos(df_previsao):
+def graph(df_previsao):
+
     plt.figure(figsize=(14, 8))
 
     plt.subplot(2, 2, 1)
