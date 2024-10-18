@@ -1,10 +1,8 @@
 import argparse
-from previsao import obter_dados_previsao, carregar_cidades
-from plot import criar_dataframe, exibir_analise_dados, graficos
+from previsao import get_forecast_data, load_cities
+from plot import get_dataframe, analysis_data, graph
 
 def main():
-    
-    # Configuração dos  argumentos de linha de comando
     parser = argparse.ArgumentParser(description =  "Obter previsão do tempo para cidades.")
     parser.add_argument('--api_key', required = True, type = str, help = 'Chave da API para o WeatherAPI.')
     parser.add_argument('--arquivo', type = str, help = 'Nome do arquivo de texto contendo as cidades.')
@@ -14,24 +12,24 @@ def main():
     api_key = args.api_key
 
     if args.arquivo:
-        cidades = carregar_cidades(args.arquivo)
+        cidades = load_cities(args.arquivo)
     elif args.cidades:
         cidades = args.cidades
     else:
         print("Forneça um nome de arquivo com o '--arquivo' ou uma lista de cidades com '--cidades'.")
         return
 
-    dados_previsao = obter_dados_previsao(cidades, api_key)
+    dados_previsao = get_forecast_data(cidades, api_key)
 
     for dado in dados_previsao:
         print(dado)
 
-    df_previsao = criar_dataframe(dados_previsao)
+    df_previsao = get_dataframe(dados_previsao)
 
     if dados_previsao:
-        criar_dataframe(dados_previsao)
-        exibir_analise_dados(dados_previsao)
-        graficos(df_previsao)
+        get_dataframe(dados_previsao)
+        analysis_data(dados_previsao)
+        graph(df_previsao)
 
 if __name__ == "__main__":
     main()
