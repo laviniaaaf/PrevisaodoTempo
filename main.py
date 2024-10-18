@@ -1,5 +1,5 @@
 import argparse
-from previsao import get_forecast_data, load_cities
+from prevision import get_forecast_data, load_cities
 from plot import get_dataframe, analysis_data, graph
 
 def main():
